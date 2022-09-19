@@ -1,0 +1,1277 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    /* background-color: #FFFDFA; */
+    /* background-image: linear-gradient(to right, #D5FEFD, #FFFCFF, #F5F7FA, #B8C6DB, #BDD4E7, #D9E4F5, #FFFDFA); */
+
+}
+
+.header-bg {
+    background-image: url(./images/newbanner.jpg);
+    background-size: 1920px;
+    background-repeat: no-repeat;
+    height: 800px;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width:992px) and (max-width: 1260px) {
+
+    .header-bg {
+        background-image: url(./images/header_rec.jpg);
+        background-size: 1260px;
+        background-repeat: no-repeat;
+        height: 800px;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .header-bg {
+        background-image: url(./images/header_rec.jpg);
+        background-size: 991px;
+        background-repeat: no-repeat;
+        height: 400px;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .header-bg {
+        background-image: url(./images/header_rec.jpg);
+        background-size: 767px;
+        background-repeat: no-repeat;
+        height: 300px;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.glass-header {
+    background-size: 1920px;
+    height: 800px;
+    padding: 0;
+    margin: 0;
+
+
+}
+
+.nav-container {
+    position: sticky;
+    top: 0;
+    padding: 5px;
+    z-index: 1000;
+}
+
+
+.nav-bg {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.33);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.52);
+    padding: 1rem;
+}
+
+.custom-text-color-nav {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #06283D;
+}
+
+.main-view {
+    display: flex;
+    height: 650px;
+    margin: 2.5rem 2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.4px);
+    -webkit-backdrop-filter: blur(12.4px);
+    border: 1px solid rgba(255, 255, 255, 0.52);
+}
+
+.play {
+    display: inline-block;
+    flex: 1;
+}
+
+.video-frame {
+    padding: 10px;
+    background: rgb(194, 255, 253);
+    background: linear-gradient(297deg, rgba(194, 255, 253, 1) 0%, rgba(255, 209, 246, 1) 76%);
+    webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    width: 560px;
+    box-shadow: -0.8rem 0.5rem 1.5rem rgb(82, 82, 82);
+    margin: 0 auto;
+    overflow: hidden;
+    flex: 1;
+}
+
+
+
+/* ++++++++++++++++=+++ Animated serch bar ++++++++++++++++++++*/
+
+
+.adv-section {
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 40rem;
+    position: relative;
+
+}
+
+.slide-section {
+
+    position: relative;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 500px 100px;
+    grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+
+.slide-container {
+    flex: 1;
+
+}
+
+main#carousel {
+    grid-row: 1 / 2;
+    grid-column: 1 / 8;
+    width: 90vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 600px;
+    background-color: transparent;
+
+    --items: 5;
+    --middle: 3;
+    --position: 1;
+    pointer-events: none;
+}
+
+.item-img {
+
+    width: 300px;
+    height: 300px;
+    border-radius: 1rem;
+}
+
+.custom-btn {
+    position: absolute;
+    bottom: 10%;
+    left: 35%;
+    cursor: pointer;
+
+}
+
+div.item {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 1rem;
+    background-color: coral;
+    --r: calc(var(--position) - var(--offset));
+    --abs: max(calc(var(--r) * -1), var(--r));
+    transition: all 0.25s linear;
+    transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
+    z-index: calc((var(--position) - var(--abs)));
+}
+
+div.item:nth-of-type(1) {
+    --offset: 1;
+    background-color: #90f1ef;
+}
+
+div.item:nth-of-type(2) {
+    --offset: 2;
+    background-color: #ff70a6;
+}
+
+div.item:nth-of-type(3) {
+    --offset: 3;
+    background-color: #ff9770;
+}
+
+div.item:nth-of-type(4) {
+    --offset: 4;
+    background-color: #ffd670;
+}
+
+div.item:nth-of-type(5) {
+    --offset: 5;
+    background-color: #e9ff70;
+}
+
+input:nth-of-type(1) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+input:nth-of-type(1):checked~main#carousel {
+    --position: 1;
+}
+
+input:nth-of-type(2) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+input:nth-of-type(2):checked~main#carousel {
+    --position: 2;
+}
+
+input:nth-of-type(3) {
+    grid-column: 4 /5;
+    grid-row: 2 / 3;
+}
+
+input:nth-of-type(3):checked~main#carousel {
+    --position: 3;
+}
+
+input:nth-of-type(4) {
+    grid-column: 5 / 6;
+    grid-row: 2 / 3;
+}
+
+input:nth-of-type(4):checked~main#carousel {
+    --position: 4;
+}
+
+input:nth-of-type(5) {
+    grid-column: 6 / 7;
+    grid-row: 2 / 3;
+}
+
+input:nth-of-type(5):checked~main#carousel {
+    --position: 5;
+}
+
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .adv-section {
+        margin: 0;
+        padding: 0;
+        display: block;
+        height: 70rem;
+        position: relative;
+    }
+
+    .slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 80rem;
+    }
+
+    main#carousel {
+        grid-row: 1 / 2;
+        grid-column: 1 / 8;
+        width: 90vw;
+        height: 400px;
+        display: flex;
+        position: absolute;
+        top: 10rem;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transform-style: preserve-3d;
+        perspective: 300px;
+        --items: 5;
+        --middle: 3;
+        --position: 1;
+        pointer-events: none;
+    }
+
+    div.item {
+        position: absolute;
+
+    }
+
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+
+    /* .adv-section {
+        margin: 0;
+        padding: 0;
+        display: block;
+        height: 30rem;
+        position: relative;
+    }
+
+
+
+    .slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 20rem;
+
+    }
+
+    .slide-section {
+
+        position: relative;
+        margin: 0;
+        display: grid;
+        grid-template-rows: 500px 100px;
+        grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+        align-items: center;
+        justify-items: center;
+    }
+
+
+    main#carousel {
+        grid-row: 1 / 2;
+        grid-column: 1 / 8;
+        width: 90vw;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transform-style: preserve-3d;
+        perspective: 10rem;
+        --items: 5;
+        --middle: 2;
+        --position: 1;
+        pointer-events: none;
+        position: relative;
+        top: 10rem;
+    }
+
+    div.item {
+        position: absolute;
+        width: 300px;
+        height: 200px;
+        border-radius: 1rem;
+        background-color: coral;
+        --r: calc(var(--position) - var(--offset));
+        --abs: max(calc(var(--r) * -1), var(--r));
+        transition: all 0.25s linear;
+        transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
+        z-index: calc((var(--position) - var(--abs)));
+    } */
+
+
+    /* =================================== */
+
+
+    .adv-section {
+        margin: 0;
+        padding: 0;
+        display: block;
+        height: 70rem;
+        position: relative;
+    }
+
+    .slide-section {
+        position: relative;
+        margin: 0;
+        display: grid;
+        grid-template-rows: 500px 100px;
+        grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+        align-items: center;
+        justify-items: center;
+        top: 30rem;
+
+    }
+
+    .slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .slide-container {
+        flex: 1;
+
+    }
+
+    main#carousel {
+        grid-row: 1 / 2;
+        grid-column: 1 / 8;
+        width: 90vw;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transform-style: preserve-3d;
+        perspective: 600px;
+        background-color: transparent;
+
+        --items: 5;
+        --middle: 3;
+        --position: 1;
+        pointer-events: none;
+    }
+
+    div.item {
+        position: absolute;
+        width: 300px;
+        height: 200px;
+        border-radius: 1rem;
+        background-color: coral;
+        --r: calc(var(--position) - var(--offset));
+        --abs: max(calc(var(--r) * -1), var(--r));
+        transition: all 0.25s linear;
+        transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
+        z-index: calc((var(--position) - var(--abs)));
+
+    }
+
+
+    .custom-btn {
+        position: absolute;
+        bottom: -40%;
+        left: 35%;
+        cursor: pointer;
+
+    }
+
+
+}
+
+
+.pic {
+    margin: 0;
+}
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
+.custom-h2 {
+    text-align: center;
+    color: #0958c4;
+    position: relative;
+    top: 3rem;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .custom-h2 {
+        display: inline-block;
+        text-align: center;
+        color: #0958c4;
+        position: relative;
+        top: 30rem;
+        padding: 0 0 0 2rem;
+
+    }
+
+}
+
+
+@media (min-width: 480px) and (max-width: 767px) {
+
+    .custom-h2 {
+        display: inline-block;
+        text-align: center;
+        color: #0958c4;
+        position: relative;
+        top: 35rem;
+        padding: 0 2rem;
+
+    }
+
+}
+
+
+/* ++++++++++++++++++++++ Web section ++++++++++++++++++++++ */
+
+.web {
+    background-color: #fff;
+    height: 400px;
+    position: relative;
+
+}
+
+.web-section {
+    position: relative;
+    height: 400px;
+}
+
+.web-img-1 {
+    width: 400px;
+    height: 400px;
+    margin: 0 5rem 0 2rem;
+    position: relative;
+
+}
+
+.web-img-2 {
+    width: 1386.2px;
+    height: 400px;
+    position: relative;
+}
+
+.web-img-3 {
+    display: inline-block;
+    position: absolute;
+    width: 250px;
+    height: 300px;
+    right: 2rem;
+    top: 15%;
+    overflow: hidden;
+
+}
+
+
+
+.buy-now-plate {
+    display: flex;
+    position: absolute;
+    height: 12rem;
+    width: 50rem;
+    padding: 2rem;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    top: 7rem;
+    left: 18rem;
+
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.76);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.61);
+}
+
+.des-plate {
+    flex: 3.5;
+    justify-self: center;
+    align-self: center;
+    box-sizing: border-box;
+}
+
+.des-plate-h {
+    color: #2C6AF0;
+    padding: 1rem;
+}
+
+.des-plate-p {
+    color: #382853;
+    padding: 0.3rem 1rem;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.custom-btn-1 {
+    flex: 1;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+}
+
+.btn-font {
+    font-weight: bolder;
+    font-size: 1rem;
+
+}
+
+
+@media (min-width: 1261px) and (max-width: 1919px) {
+
+    .adv-section {
+        margin: 0;
+        padding: 0;
+        display: block;
+        height: 40rem;
+        position: relative;
+        /* background-image: linear-gradient(to right, #B1B2FF, #AAC4FF, #D2DAFF, #D2DAFF, #D2DAFF, #DFF6FF, #E8F9FD); */
+        background-image: linear-gradient(to bottom right, #ffffff, #FFFCFF);
+
+    }
+
+    .web {
+        background-color: #fff;
+        height: 400px;
+        position: relative;
+
+    }
+
+    .web-section {
+        position: relative;
+        height: 400px;
+        display: flex;
+    }
+
+    .web-img-1 {
+        width: auto;
+        height: 400px;
+        margin: 0 5rem 0 2rem;
+        flex: 1;
+
+
+    }
+
+    .web-img-2 {
+        width: 100%;
+        height: 400px;
+        flex: 2;
+
+    }
+
+    .web-img-3 {
+        display: inline-block;
+        position: absolute;
+        width: 250px;
+        height: 300px;
+        right: 8rem;
+        top: 15%;
+        overflow: hidden;
+        flex: 0;
+
+    }
+}
+
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 1260px) {
+    .web {
+        background-color: #fff;
+        height: 800px;
+        position: relative;
+
+    }
+
+    .web-section {
+        position: relative;
+        height: 400px;
+    }
+
+    .web-img-1 {
+        width: 400px;
+        height: 400px;
+
+
+
+    }
+
+    .web-img-2 {
+        width: 100%;
+        height: 400px;
+
+    }
+
+    .web-img-3 {
+        display: inline-block;
+        position: absolute;
+        width: 250px;
+        height: 300px;
+        right: 10rem;
+        top: 15%;
+        overflow: hidden;
+
+    }
+
+
+
+
+    /* .buy-now-plate {
+        display: flex;
+        position: absolute;
+        height: 12rem;
+        width: 50rem;
+        padding: 2rem;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        top: 33rem;
+        left: 14rem;
+
+       
+        background: rgba(255, 255, 255, 0.76);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.61);
+    }
+
+    .des-plate {
+        flex: 3.5;
+        justify-self: center;
+        align-self: center;
+        box-sizing: border-box;
+    }
+
+    .des-plate-h {
+        color: #2C6AF0;
+        padding: 1rem;
+    }
+
+    .des-plate-p {
+        color: #382853;
+        padding: 0.3rem 1rem;
+        font-size: 1.2rem;
+        font-weight: bolder;
+    }
+
+    .custom-btn-1 {
+        flex: 1;
+        justify-self: center;
+        align-self: center;
+        text-align: center;
+    }
+
+    .btn-font {
+        font-weight: bolder;
+        font-size: 1rem;
+
+    } */
+
+
+    .buy-now-plate {
+        display: grid;
+        position: absolute;
+        height: 20rem;
+        width: 22rem;
+        padding: 1rem;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        top: 28rem;
+        left: 25rem;
+        text-align: center;
+
+        /* From https://css.glass */
+        background: rgba(255, 255, 255, 0.76);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.61);
+    }
+
+    .des-plate {
+        flex: 3.5;
+        justify-self: center;
+        align-self: center;
+        box-sizing: border-box;
+    }
+
+    .des-plate-h {
+        color: #2C6AF0;
+        font-size: 1.8rem;
+    }
+
+    .des-plate-p {
+        color: #382853;
+        padding: 0.3rem 1rem;
+        font-size: 1rem;
+        font-weight: bolder;
+        text-align: justify;
+    }
+
+    .custom-btn-1 {
+        flex: 1;
+        justify-self: center;
+        align-self: center;
+        text-align: center;
+    }
+
+    .btn-font {
+        font-weight: bolder;
+        font-size: 1rem;
+
+    }
+
+
+
+}
+
+
+@media (min-width: 400px) and (max-width: 767px) {
+
+    .web {
+        background-color: #fff;
+        height: 800px;
+        position: relative;
+
+    }
+
+    .web-img-2 {
+        width: 100%;
+        height: 400px;
+    }
+
+    .web-img-1 {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        margin: 0 0 0 2.5rem;
+        padding: 0;
+
+
+    }
+
+    .web-img-3 {
+        display: inline-block;
+        position: absolute;
+        width: 250px;
+        height: 300px;
+        right: 7.5rem;
+        top: 20%;
+        overflow: hidden;
+
+    }
+
+
+    .buy-now-plate {
+        display: grid;
+        position: absolute;
+        height: 20rem;
+        width: 22rem;
+        padding: 1rem;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        top: 27rem;
+        left: 4rem;
+        text-align: center;
+
+        /* From https://css.glass */
+        background: rgba(255, 255, 255, 0.76);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.61);
+    }
+
+    .des-plate {
+        flex: 3.5;
+        justify-self: center;
+        align-self: center;
+        box-sizing: border-box;
+    }
+
+    .des-plate-h {
+        color: #2C6AF0;
+        font-size: 1.8rem;
+    }
+
+    .des-plate-p {
+        color: #382853;
+        padding: 0.3rem 1rem;
+        font-size: 1rem;
+        font-weight: bolder;
+        text-align: justify;
+    }
+
+    .custom-btn-1 {
+        flex: 1;
+        justify-self: center;
+        align-self: center;
+        text-align: center;
+    }
+
+    .btn-font {
+        font-weight: bolder;
+        font-size: 1rem;
+
+    }
+
+}
+
+
+/*++++++++++++ Courser ++++++++++++++++++*/
+
+.course-section {
+    background-image: linear-gradient(to top left, #FFFDFA, #FDFDFD);
+    padding: 5rem 0;
+
+}
+
+.course-container {
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 2rem 0;
+    padding: 3rem 1rem;
+    margin: auto;
+
+
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.2px);
+    -webkit-backdrop-filter: blur(12.2px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card {
+    margin: .5rem;
+}
+
+
+.course-h3 {
+    text-align: center;
+    padding: 1rem;
+}
+
+
+.course-h3-ul {
+    text-align: center;
+    padding-bottom: 1rem;
+    font-weight: lighter;
+}
+
+
+
+.link-btn {
+    display: flex;
+    gap: 1rem;
+}
+
+
+
+
+.link-secondary {
+    padding: 2rem 0.3rem 0 0;
+    flex: 1;
+    text-align: end;
+    text-decoration: none;
+}
+
+.link-info {
+    padding: 2rem 0 0 0.3rem;
+    flex: 1;
+    text-decoration: none;
+}
+
+
+
+
+/* Instructor */
+
+.instructor {
+    display: flex;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+}
+
+
+
+/* .inst-img {
+    flex: 1;
+}
+
+.inst-des {
+    flex: 1;
+} */
+
+
+.ins-top {
+    text-align: center;
+    margin: 1rem;
+}
+
+.ins-under {
+    text-align: center;
+    margin: 1rem 0 0 5rem;
+}
+
+
+.ins-1 {
+    border-radius: 50%;
+    margin-right: 0.5rem;
+
+}
+
+.ins-2 {
+    border-radius: 50%;
+    margin-left: .5rem;
+
+}
+
+
+
+.ins-3 {
+    border-radius: 50%;
+    width: 75px;
+    margin-right: .5rem;
+
+}
+
+.ins-4 {
+    border-radius: 50%;
+    width: 75px;
+    margin-left: .5rem;
+}
+
+.btn-div {
+    height: 5rem;
+    margin: 2rem 0 0 0;
+    padding-top: 1.2rem;
+    box-sizing: border-box;
+
+
+}
+
+.ins-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+.ins-btn:hover {
+    font-size: 1rem;
+    font-weight: bold;
+    transition-duration: 2000ms;
+
+}
+
+/* Student feedback section started */
+
+.slide-set {
+    box-sizing: border-box;
+    padding: 5rem 4rem;
+    margin: 3rem auto;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.57);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+/* Student feedback system end */
+
+
+
+.buy-now-button {
+    background-image: linear-gradient(to bottom, #ff589b 0%, #ff136f 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 25px;
+    cursor: pointer;
+}
+
+
+#Contact-us {
+    height: 300px;
+}
+
+#Contact-us h5 {
+    color: gray;
+}
+
+.bottom {
+    text-align: center;
+    margin-top: 6px;
+    /* margin: auto; */
+}
+
+
+.bg-color {
+    background-color: #fceae8;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.8px);
+    -webkit-backdrop-filter: blur(8.8px);
+}
+
+
+
+
+/* Bottom Section Startes */
+
+.bottom-section {
+    background-color: #f6f3ff;
+    padding: 50px 0 50px 0;
+}
+
+.list-text-0 {
+    color: rgb(92, 92, 92);
+}
+
+.list-text {
+    color: rgb(92, 92, 92);
+}
+
+.list-text li {
+    list-style: none;
+}
+
+.a-link {
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+}
+
+.a-link:hover {
+    color: rgb(37, 37, 37);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+.icon-1 {
+    width: 2.5rem;
+    padding: 0;
+}
+
+
+
+@media (max-width: 575px) {
+    .list-text ul {
+        padding: 0;
+    }
+
+    .list-text-0 {
+        margin: 10px 0 10px 0;
+        padding: 5px;
+    }
+
+    .list-text {
+        margin: 10px 0 10px 0;
+        padding: 5px;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .list-text ul {
+        padding: 0;
+    }
+
+    .list-text-0 {
+        margin: 10px 0 10px 0;
+        padding: 5px;
+    }
+
+    .list-text {
+        margin: 10px 0 10px 0;
+        padding: 5px;
+    }
+
+    .list-style-0 {
+        text-align: justify;
+    }
+
+    .list-style-2 {
+        display: flex;
+        justify-content: end;
+        text-align: right;
+    }
+
+    .list-style-3 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+
+@media (min-width: 768px) and (max-height: 991px) {
+    .list-text ul {
+        padding: 0;
+    }
+
+    .list-text-0 {
+        margin: 10px 0 10px 0;
+        padding: 5px;
+    }
+
+    .list-text {
+        margin: 10px 0 10px 0;
+        padding: 5px;
+    }
+}
+
+
+@media (min-width: 992px) and (max-height: 1199px) {
+    .list-text-0 {
+        margin: 10px 0 10px 0;
+        padding: 5px;
+    }
+
+    .list-text ul {
+        padding: 0;
+    }
+
+    .list-text {
+        margin: 10px 0 10px 0;
+        padding: 5px;
+    }
+}
+
+/* Bottom section */
+
+
+
+
+/* Footer Section Started */
+
+footer {
+    background-color: #f6f3ff;
+    text-align: center;
+}
+
+.footer-text {
+    color: rgb(54, 54, 54);
+    font-weight: 500;
+}
+
+/* Footer Section Ended */
